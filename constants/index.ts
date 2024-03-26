@@ -1,3 +1,11 @@
+export const collections = [
+  "undervalued_growth_stocks",
+  "growth_technology_stocks",
+  "undervalued_large_caps",
+  "aggressive_small_caps",
+  "small_cap_gainers",
+];
+
 export const footerLinks = [
   {
     title: "About",
