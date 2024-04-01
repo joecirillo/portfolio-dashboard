@@ -122,7 +122,7 @@ const PortfolioPieChart = ({
   collection: MarketCapCalculationsProps[];
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#AF19FF"];
+  const colors = ["#e73d18", "#18c2e7", "#339b16", "#b51fe0", "#7c8380"];
 
   console.log("Collection: " + collection);
 
@@ -140,7 +140,7 @@ const PortfolioPieChart = ({
           cx="50%"
           cy="50%"
           innerRadius={80}
-          outerRadius={120}
+          outerRadius={150}
           fill="#1730ae"
           dataKey="value"
           onMouseEnter={onPieEnter}

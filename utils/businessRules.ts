@@ -2,6 +2,7 @@ import { MarketCapProps } from "@/types";
 import { getQuotes } from "./api/getQuote";
 import { getHistory } from "./api/getHistory";
 import { getCollections } from "./api/getCollections";
+import { collections } from "@/constants";
 
 export function calculateMarketCap(stocksData: MarketCapProps[]) {
   return stocksData.map(
@@ -29,4 +30,18 @@ export async function getFinancialData(collection: string) {
   );
 
   return calculateMarketCap(results);
+}
+
+export async function getMarketCapData() {
+  try {
+    const data: { [key: string]: any } = {};
+    for (const collection of collections) {
+      const collectionData = await getCollections(collection);
+      data[collection] = collectionData;
+    }
+    //   console.log("Market cap data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching market cap data:", error);
+  }
 }

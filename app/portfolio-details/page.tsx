@@ -1,22 +1,8 @@
 import React from "react";
 import { PortfolioPieChart } from "../components";
 import { collections } from "@/constants";
-import { getFinancialData } from "@/utils/businessRules";
+import { getFinancialData, getMarketCapData } from "@/utils/businessRules";
 import { getCollections } from "@/utils/api/getCollections";
-
-export async function getMarketCapData() {
-  try {
-    const data: { [key: string]: any } = {};
-    for (const collection of collections) {
-      const collectionData = await getCollections(collection);
-      data[collection] = collectionData;
-    }
-    //   console.log("Market cap data:", data);
-    return data;
-  } catch (error) {
-    console.error("Error fetching market cap data:", error);
-  }
-}
 
 const PortfolioDetails = async () => {
   const data = await getMarketCapData();
@@ -27,7 +13,7 @@ const PortfolioDetails = async () => {
       <div className="relative w-full mt-6 flex flex-col items-center">
         {collections.map((collection) => (
           <div
-            className="bg-light-white shadow-sm relative w-full h-40 mb-24 mt-24 flex items-center"
+            className="bg-light-white shadow-sm relative w-full h-52 mb-28 mt-28 flex items-center"
             key={collection}
           >
             <h1 className="ml-36 text-center">
