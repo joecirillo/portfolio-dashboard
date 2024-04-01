@@ -3,3 +3,12 @@ export interface MarketCapProps {
   price: number;
   sharesOutstanding: number;
 }
+
+export interface MarketCapCalculationsProps {
+  ticker: string;
+  marketCap: number;
+}
+
+export interface MarketCapCalculationsPropsArray {
+  caps: MarketCapCalculationsProps[];
+}

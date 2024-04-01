@@ -1,13 +1,37 @@
 "use client";
 
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
+import {
+  MarketCapCalculationsProps,
+  MarketCapCalculationsPropsArray,
+  MarketCapProps,
+} from "@/types";
+import { getCollections } from "@/utils/api/getCollections";
+import { getFinancialData } from "@/utils/businessRules";
+import React, { useEffect, useState } from "react";
+import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from "recharts";
 
-const data = [
+const data2 = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
   { name: "Group C", value: 300 },
   { name: "Group D", value: 200 },
+  { name: "Group E", value: 150 },
+];
+
+const small_cap_gainers = [
+  { name: "SOS", value: 29570776 },
+  { name: "NKLA", value: 1389044736 },
+  { name: "CDE", value: 1456215296 },
+  { name: "EAF", value: 354428160 },
+  { name: "AG", value: 1688677376 },
+];
+
+const data = [
+  { name: "Group 1", value: 400 },
+  { name: "Group 2", value: 300 },
+  { name: "Group 3", value: 300 },
+  { name: "Group 4", value: 200 },
+  { name: "Group 5", value: 150 },
 ];
 
 const renderActiveShape = (props: any) => {
@@ -43,7 +67,7 @@ const renderActiveShape = (props: any) => {
         dy={8}
         textAnchor="middle"
         fill={fill}
-        className="text-base"
+        className="text-xl"
       >
         {payload.name}
       </text>
@@ -77,7 +101,7 @@ const renderActiveShape = (props: any) => {
         textAnchor={textAnchor}
         fill="#333"
         className="text-base"
-      >{`PV ${value}`}</text>
+      >{`Market Cap: $${value.toLocaleString()}`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -86,42 +110,48 @@ const renderActiveShape = (props: any) => {
         fill="#999"
         className="text-base mb-6"
       >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {`(${(percent * 100).toFixed(2)}% of Portfolio Holding)`}
       </text>
     </g>
   );
 };
 
-export default class MarketCapPieChart extends PureComponent {
-  state = {
-    activeIndex: 0,
+const PortfolioPieChart = ({
+  collection,
+}: {
+  collection: MarketCapCalculationsProps[];
+}) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#AF19FF"];
+
+  console.log("Collection: " + collection);
+
+  const onPieEnter = (_: any, index: any) => {
+    setActiveIndex(index);
   };
 
-  onPieEnter = (_: any, index: any) => {
-    this.setState({
-      activeIndex: index,
-    });
-  };
+  return (
+    <ResponsiveContainer width="200%" height="200%">
+      <PieChart width={1000} height={1000}>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={collection}
+          cx="50%"
+          cy="50%"
+          innerRadius={80}
+          outerRadius={120}
+          fill="#1730ae"
+          dataKey="value"
+          onMouseEnter={onPieEnter}
+        >
+          {collection.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
 
-  render() {
-    console.log("test test");
-    return (
-      <ResponsiveContainer width="100%" height="120%">
-        <PieChart width={400} height={400}>
-          <Pie
-            activeIndex={this.state.activeIndex}
-            activeShape={renderActiveShape}
-            data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            onMouseEnter={this.onPieEnter}
-          />
-        </PieChart>
-      </ResponsiveContainer>
-    );
-  }
-}
+export default PortfolioPieChart;

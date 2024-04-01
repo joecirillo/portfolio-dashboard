@@ -2,8 +2,6 @@ import { getCollections } from "@/utils/api/getCollections";
 import React, { useEffect } from "react";
 
 export default function Home() {
-  console.log(getCollections("undervalued_growth_stocks"));
-
   return (
     <main className="overflow-hidden">
       <div className="text-center pt-36 mb-10">

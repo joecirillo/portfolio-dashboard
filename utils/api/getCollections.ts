@@ -9,24 +9,13 @@ export async function getCollections(collection: string) {
     }
     const result = await response.json();
     const stocks = result.data.quotes.map(
-      (stock: {
-        displayName: string;
-        sharesOutstanding: string;
-        symbol: string;
-      }) => ({
-        displayName: stock.displayName,
-        sharesOutstanding: stock.sharesOutstanding,
-        symbol: stock.symbol,
+      (stock: { symbol: string; marketCap: number }) => ({
+        name: stock.symbol,
+        value: stock.marketCap,
       })
     );
-    console.log(
-      stocks.map(
-        (stock: { displayName: string; symbol: string }) =>
-          stock.symbol + " " + stock.displayName
-      )
-    );
-    console.log("Stocks: " + stocks);
-    console.log(result);
+
+    return stocks;
   } catch (error) {
     console.error("Error fetching collections data: " + error);
   }
