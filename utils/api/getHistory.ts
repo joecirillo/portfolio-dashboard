@@ -14,6 +14,8 @@ export async function getHistory(stock: string) {
     const quote: string = result.history.day[0].close;
     return quote;
   } catch (error) {
-    console.error("Could not fetch quote " + error);
+    console.error(
+      "Could not fetch historical quote for " + stock + " " + error
+    );
   }
 }

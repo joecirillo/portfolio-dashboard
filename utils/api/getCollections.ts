@@ -15,9 +15,14 @@ export async function getCollections(collection: string) {
     }
     const result = await response.json();
     const stocks = result.data.quotes.map(
-      (stock: { symbol: string; marketCap: number }) => ({
+      (stock: {
+        symbol: string;
+        marketCap: number;
+        sharesOutstanding: number;
+      }) => ({
         name: stock.symbol,
         value: stock.marketCap,
+        sharesOutstanding: stock.sharesOutstanding,
       })
     );
 

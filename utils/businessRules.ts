@@ -8,8 +8,9 @@ export function calculateMarketCap(stocksData: MarketCapProps[]) {
   return stocksData.map(
     ({ ticker, price, sharesOutstanding }: MarketCapProps) => {
       // Assuming market cap calculation here is based on price and shares outstanding
-      const marketCap = price * sharesOutstanding;
-      return { ticker, marketCap };
+      const name = ticker;
+      const value = price * sharesOutstanding;
+      return { name, value };
     }
   );
 }
@@ -19,15 +20,16 @@ export async function getFinancialData(collection: string) {
 
   const results = await Promise.all(
     collections.map(async (collectionItem: any) => {
-      const [history] = await Promise.all([getHistory(collectionItem.symbol)]);
+      const history = await getHistory(collectionItem.name);
 
       return {
-        ticker: collectionItem.symbol,
+        ticker: collectionItem.name,
         price: history, // Assuming getQuotes returns an object with price property
-        sharesOutstanding: parseFloat(collectionItem.sharesOutstanding), // Parse sharesOutstanding to number
+        sharesOutstanding: collectionItem.sharesOutstanding, // Parse sharesOutstanding to number
       };
     })
   );
+  console.log("Results: " + results);
 
   return calculateMarketCap(results);
 }
@@ -40,6 +42,19 @@ export async function getMarketCapData() {
       data[collection] = collectionData;
     }
     //   console.log("Market cap data:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching market cap data:", error);
+  }
+}
+
+export async function getHistoricalMarketCapData() {
+  try {
+    const data: { [key: string]: any } = {};
+    for (const collection of collections) {
+      const collectionData = await getFinancialData(collection);
+      data[collection] = collectionData;
+    }
     return data;
   } catch (error) {
     console.error("Error fetching market cap data:", error);
