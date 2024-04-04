@@ -4,11 +4,11 @@ export interface MarketCapProps {
   sharesOutstanding: number;
 }
 
-export interface MarketCapCalculationsProps {
-  ticker: string;
-  marketCap: number;
+export interface PortfolioPieChartProps {
+  name: string;
+  value: number;
 }
 
 export interface MarketCapCalculationsPropsArray {
-  caps: MarketCapCalculationsProps[];
+  caps: PortfolioPieChartProps[];
 }
