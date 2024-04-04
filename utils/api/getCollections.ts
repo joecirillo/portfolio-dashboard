@@ -14,6 +14,7 @@ export async function getCollections(collection: string) {
       throw new Error("Failed to fetch collections data");
     }
     const result = await response.json();
+
     const stocks = result.data.quotes.map(
       (stock: {
         symbol: string;

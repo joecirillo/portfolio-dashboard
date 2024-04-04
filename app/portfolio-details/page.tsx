@@ -2,6 +2,7 @@ import React from "react";
 import { PortfolioPieChart } from "../components";
 import { collections } from "@/constants";
 import {
+  calculatePortfolioReturns,
   getFinancialData,
   getHistoricalMarketCapData,
   getMarketCapData,
@@ -14,6 +15,9 @@ const PortfolioDetails = async () => {
   // console.log(data);
   const stockData = await getHistoricalMarketCapData();
   console.log(stockData);
+  const portfolio = await getMarketCapData();
+  console.log("------------");
+  console.log(portfolio);
   return (
     <div className="flex flex-col justify-center items-center text-4xl pt-36 mb-10">
       Breakdown of Portfolios
@@ -29,7 +33,7 @@ const PortfolioDetails = async () => {
                 .replace(/_/g, " ")
                 .replace(/\b\w/g, (char) => char.toUpperCase())}
             </h1>
-            <PortfolioPieChart collection={stockData[collection]} />
+            <PortfolioPieChart collection={stockData![collection]} />
           </div>
         ))}
       </div>

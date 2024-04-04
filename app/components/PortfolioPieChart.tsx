@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  MarketCapCalculationsProps,
+  PortfolioPieChartProps,
   MarketCapCalculationsPropsArray,
   MarketCapProps,
 } from "@/types";
@@ -119,12 +119,10 @@ const renderActiveShape = (props: any) => {
 const PortfolioPieChart = ({
   collection,
 }: {
-  collection: MarketCapCalculationsProps[];
+  collection: PortfolioPieChartProps[];
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const colors = ["#e73d18", "#18c2e7", "#339b16", "#b51fe0", "#7c8380"];
-
-  console.log("Collection: " + collection);
 
   const onPieEnter = (_: any, index: any) => {
     setActiveIndex(index);

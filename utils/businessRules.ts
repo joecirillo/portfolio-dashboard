@@ -29,19 +29,25 @@ export async function getFinancialData(collection: string) {
       };
     })
   );
-  console.log("Results: " + results);
 
   return calculateMarketCap(results);
 }
 
 export async function getMarketCapData() {
   try {
-    const data: { [key: string]: any } = {};
+    const data: {
+      [key: string]: {
+        name: string;
+        value: number;
+        sharesOutstanding: number;
+      }[];
+    } = {};
     for (const collection of collections) {
       const collectionData = await getCollections(collection);
+      console.log(collectionData);
       data[collection] = collectionData;
     }
-    //   console.log("Market cap data:", data);
+
     return data;
   } catch (error) {
     console.error("Error fetching market cap data:", error);
@@ -50,13 +56,28 @@ export async function getMarketCapData() {
 
 export async function getHistoricalMarketCapData() {
   try {
-    const data: { [key: string]: any } = {};
+    const data: { [key: string]: { name: string; value: number }[] } = {};
     for (const collection of collections) {
       const collectionData = await getFinancialData(collection);
       data[collection] = collectionData;
     }
+
     return data;
   } catch (error) {
     console.error("Error fetching market cap data:", error);
   }
+}
+
+export async function calculatePortfolioReturns() {
+  const yearStart = await getHistoricalMarketCapData();
+  const yearToDate = await getMarketCapData();
+
+  if (!yearStart || !yearToDate) {
+    console.log("Error: Unable to fetch data.");
+    return; // Exit the function if data is not available
+  }
+
+  collections.map((collection: any) => {
+    console.log(" HI " + yearStart[collection][0].name);
+  });
 }
