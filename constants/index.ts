@@ -6,6 +6,14 @@ export const collections = [
   "small_cap_gainers",
 ];
 
+export const initials = [
+  { name: "Undervalued Growth Stocks", initials: "UGS" },
+  { name: "Growth Technology Stocks", initials: "GTS" },
+  { name: "Undervalued Large Caps", initials: "ULC" },
+  { name: "Aggressive Small Caps", initials: "ASC" },
+  { name: "Small Cap Gainers", initials: "SCG" },
+];
+
 export const footerLinks = [
   {
     title: "About",

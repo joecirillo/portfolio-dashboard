@@ -17,5 +17,6 @@ export async function getHistory(stock: string) {
     console.error(
       "Could not fetch historical quote for " + stock + " " + error
     );
+    return 15;
   }
 }
