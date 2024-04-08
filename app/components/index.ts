@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import PortfolioPieChart from "./PortfolioPieChart";
 import PortfolioReturnsChart from "./PortfolioReturnsChart";
 import SeparateLegend from "./SeparateLegend";
+import StockReturnsChart from "./StockReturnsChart";
 
 export {
   Navbar,
@@ -10,4 +11,5 @@ export {
   PortfolioPieChart,
   PortfolioReturnsChart,
   SeparateLegend,
+  StockReturnsChart,
 };

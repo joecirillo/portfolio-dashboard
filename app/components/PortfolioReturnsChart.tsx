@@ -57,7 +57,9 @@ const PortfolioReturnsChart = ({ returnData }: any) => {
           domain={[0, 100]} // Ensure y-axis starts from 0 and extends to the maximum data value
           interval="preserveStartEnd" // Preserve the start and end ticks
         />
-        <Tooltip />
+        <Tooltip
+          formatter={(value) => ["return: " + Number(value).toFixed(2) + "%"]}
+        />
         <Bar
           dataKey="return"
           fill="#8884d8"
