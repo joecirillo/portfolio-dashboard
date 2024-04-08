@@ -35,9 +35,9 @@ const Navbar = () => {
                   Portfolio Returns
                 </div>
               </Link>
-              <Link href="/portfolio-interactions" className="text-center">
+              <Link href="/stock-returns" className="text-center">
                 <div className="text-white hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
-                  Portfolio Interactions
+                  Stock Returns
                 </div>
               </Link>
               <Link href="/portfolio-interactions-more" className="text-center">
