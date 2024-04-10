@@ -2,7 +2,6 @@ import React from "react";
 import { PortfolioPieChart } from "../components";
 import { collections } from "@/constants";
 import {
-  calculateStockReturns,
   getFinancialData,
   getHistoricalMarketCapData,
   getMarketCapData,

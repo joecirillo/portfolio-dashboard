@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PortfolioRatios = () => {
   return (
@@ -31,6 +32,11 @@ const PortfolioRatios = () => {
           <p className="text-sm m-8">*insert info about box plot here*</p>
         </div>
       </div>
+      <Link href="/portfolio-ratios/metrics" className="text-center">
+        <div className="text-grey hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
+          Metric Details
+        </div>
+      </Link>
     </div>
   );
 };
