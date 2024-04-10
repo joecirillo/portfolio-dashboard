@@ -3,14 +3,32 @@ import Image from "next/image";
 
 const PortfolioRatios = () => {
   return (
-    <div className="flex justify-center text-4xl pt-36 mb-10">
-      Portfolio Ratios
-      <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">
-        <div className="relative xl:w-full w-[90%] xl:h-full h-[590px] z-0">
-          <Image src={"/Book_Value.png"} fill alt={"book value"}></Image>
+    <div className="flex flex-col items-center text-4xl pt-36 mb-10">
+      <h1 className="mb-4">Portfolio Ratios</h1>
+      <div className="flex m-4">
+        <div
+          className="flex flex-col items-center mt-4 mr-16"
+          key="price-to-book"
+        >
+          <Image
+            src={"/Price_Book_Ratio.png"}
+            width={500}
+            height={500}
+            alt={"book value"}
+          ></Image>
+          <p className="text-sm m-8">*insert info about box plot here*</p>
         </div>
-        <div className="relative xl:w-full w-[90%] xl:h-full h-[590px] z-0">
-          <Image src={"/PE_Ratio.png"} fill alt={"box plot"}></Image>
+        <div
+          className="flex flex-col items-center mt-4 ml-16"
+          key="price-to-earnings"
+        >
+          <Image
+            src={"/PE_Ratio.png"}
+            width={500}
+            height={500}
+            alt={"box plot"}
+          ></Image>
+          <p className="text-sm m-8">*insert info about box plot here*</p>
         </div>
       </div>
     </div>

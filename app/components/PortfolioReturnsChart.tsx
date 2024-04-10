@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ReferenceLine,
 } from "recharts";
 
 const PortfolioReturnsChart = ({ returnData }: any) => {
@@ -30,6 +31,8 @@ const PortfolioReturnsChart = ({ returnData }: any) => {
   );
 
   console.log(chartData);
+
+  const yAxisFormatter = (value: any) => `${value}%`; // Function to format y-axis labels with percentage symbol
 
   return (
     <ResponsiveContainer width="80%" height="100%">
@@ -54,12 +57,14 @@ const PortfolioReturnsChart = ({ returnData }: any) => {
         />
         <YAxis
           width={100}
-          domain={[0, 100]} // Ensure y-axis starts from 0 and extends to the maximum data value
+          domain={[-100, 100]} // Ensure y-axis starts from 0 and extends to the maximum data value
           interval="preserveStartEnd" // Preserve the start and end ticks
+          tickFormatter={yAxisFormatter}
         />
         <Tooltip
           formatter={(value) => ["return: " + Number(value).toFixed(2) + "%"]}
         />
+        <ReferenceLine y={0} stroke="#000" />
         <Bar
           dataKey="return"
           fill="#8884d8"
