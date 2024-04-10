@@ -11,7 +11,7 @@ export async function getHistory(stock: string) {
 
     const result = await response.json();
 
-    const quote: string = result.history.day[0].close;
+    const quote: string = result.history.day[0].open;
     return quote;
   } catch (error) {
     console.error(

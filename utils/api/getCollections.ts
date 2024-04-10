@@ -20,10 +20,12 @@ export async function getCollections(collection: string) {
         symbol: string;
         marketCap: number;
         sharesOutstanding: number;
+        regularMarketPreviousClose: any;
       }) => ({
         name: stock.symbol,
         value: stock.marketCap,
         sharesOutstanding: stock.sharesOutstanding,
+        price: stock.regularMarketPreviousClose,
       })
     );
 
