@@ -24,6 +24,7 @@ module.exports = {
           100: "rgba(59,60,152,0.02)",
         },
         grey: "#747A88",
+        light: "#e8e9eb",
         neon: "#52E41B",
       },
       backgroundImage: {

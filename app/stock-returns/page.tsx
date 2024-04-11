@@ -7,6 +7,7 @@ const StockReturns = async () => {
   console.log(x);
   return (
     <div className="flex flex-col justify-center items-center text-4xl pt-36 mb-10">
+      <h1 className="mb-8">Stock Returns</h1>
       {Object.keys(x).map((key) => (
         <div key={key} style={{ width: "80%", marginBottom: "20px" }}>
           <h2 className="flex justify-center">

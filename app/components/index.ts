@@ -4,6 +4,7 @@ import PortfolioPieChart from "./PortfolioPieChart";
 import PortfolioReturnsChart from "./PortfolioReturnsChart";
 import SeparateLegend from "./SeparateLegend";
 import StockReturnsChart from "./StockReturnsChart";
+import AnalystScatterPlot from "./AnalystScatterPlot";
 
 export {
   Navbar,
@@ -12,4 +13,5 @@ export {
   PortfolioReturnsChart,
   SeparateLegend,
   StockReturnsChart,
+  AnalystScatterPlot,
 };
