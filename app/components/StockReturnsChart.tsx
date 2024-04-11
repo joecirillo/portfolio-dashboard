@@ -19,7 +19,7 @@ const StockReturnsChart = ({ stockReturnData }: any) => {
   const yAxisFormatter = (value: any) => `${value * 100}%`;
 
   return (
-    <ResponsiveContainer width="90%" height="100%">
+    <ResponsiveContainer width="100%" height="100%">
       <BarChart
         width={500}
         height={300}
@@ -33,7 +33,7 @@ const StockReturnsChart = ({ stockReturnData }: any) => {
       >
         <XAxis
           dataKey="name"
-          tick={{ fontSize: 14, fontWeight: "bold" }}
+          tick={{ fontSize: 12, fontWeight: "bold" }}
           interval={0}
         />
         <YAxis width={100} tickFormatter={yAxisFormatter} />

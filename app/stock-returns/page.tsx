@@ -21,6 +21,7 @@ const StockReturns = async () => {
           </div>
         </div>
       ))}
+      <p className="text-sm"> insert info here</p>
     </div>
   );
 };
