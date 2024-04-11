@@ -32,10 +32,10 @@ const PortfolioRatios = () => {
           <p className="text-sm m-8">*insert info about box plot here*</p>
         </div>
       </div>
-      <Link href="/portfolio-ratios/metrics" className="text-center">
-        <div className="text-grey hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
-          Metric Details
-        </div>
+      <Link href="/portfolio-ratios/metrics">
+        <button className="focus:outline-none text-white text-sm bg-blue-100 hover:bg-light hover:text-black shadow-2xl shadow-black rounded-full p-4">
+          More Details
+        </button>
       </Link>
     </div>
   );

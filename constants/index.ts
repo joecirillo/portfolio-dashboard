@@ -14,6 +14,8 @@ export const initials = [
   { name: "Small Cap Gainers", initials: "SCG" },
 ];
 
+export const ratios = ["PB", "PE"];
+
 export const footerLinks = [
   {
     title: "About",

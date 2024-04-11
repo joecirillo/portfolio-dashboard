@@ -21,11 +21,17 @@ export async function getCollections(collection: string) {
         marketCap: number;
         sharesOutstanding: number;
         regularMarketPreviousClose: any;
+        averageAnalystRating: any;
+        forwardPE: number;
+        fiftyDayAverageChangePercent: number;
       }) => ({
         name: stock.symbol,
         value: stock.marketCap,
         sharesOutstanding: stock.sharesOutstanding,
         price: stock.regularMarketPreviousClose,
+        averageAnalystRating: stock.averageAnalystRating,
+        forwardPE: stock.forwardPE,
+        fiftyDayAverageChangePercent: stock.fiftyDayAverageChangePercent,
       })
     );
 

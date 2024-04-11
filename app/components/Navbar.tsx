@@ -17,7 +17,7 @@ const Navbar = () => {
               {/* Increased spacing */}
               <Link href="/" className="text-center">
                 <div className="flex justify-center text-white hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
-                  Home
+                  Overview
                 </div>
               </Link>
               <Link href="/portfolio-details" className="text-center">
@@ -40,9 +40,9 @@ const Navbar = () => {
                   Stock Returns
                 </div>
               </Link>
-              <Link href="/portfolio-interactions-more" className="text-center">
+              <Link href="/analyst-ratings" className="text-center">
                 <div className="text-white hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
-                  More Portfolio Interactions
+                  Analyst Ratings
                 </div>
               </Link>
             </div>
