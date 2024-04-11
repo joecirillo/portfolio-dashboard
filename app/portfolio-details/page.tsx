@@ -36,6 +36,7 @@ const PortfolioDetails = async () => {
           </div>
         ))}
       </div>
+      <p>*info here*</p>
     </div>
   );
 };

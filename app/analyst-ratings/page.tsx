@@ -11,9 +11,10 @@ const AnalystRatings = async () => {
   return (
     <div className="flex flex-col items-align text-4xl pt-36 mb-10">
       <h1 className="flex justify-center">Analyst Ratings</h1>
-      <div className="relative h-96 m-12 flex flex-col justify-center">
+      <div className="relative h-full m-12 flex flex-col justify-center">
         <AnalystScatterPlot ratings={ratings}></AnalystScatterPlot>
       </div>
+      <p className="flex justify-center text-sm">*insert info here*</p>
     </div>
   );
 };

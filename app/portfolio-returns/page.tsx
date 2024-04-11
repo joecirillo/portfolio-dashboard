@@ -18,6 +18,7 @@ const PortfolioReturns = async () => {
       <div>
         <SeparateLegend legendData={initials} />
       </div>
+      <p className="text-sm mt-8">*info here*</p>
     </div>
   );
 };
