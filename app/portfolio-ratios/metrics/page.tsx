@@ -1,10 +1,9 @@
-import { collections, initials } from "@/constants";
+import { initials } from "@/constants";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const MetricsStats = (metric: string) => {
-  const hi = metric;
+const MetricsStats = () => {
   return (
     <div className="flex flex-col items-center text-4xl pt-36 mb-10">
       <h1 className="mb-4">More Details</h1>
