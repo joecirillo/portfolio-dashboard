@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const page = (metric: string) => {
+const MetricsStats = (metric: string) => {
   const hi = metric;
   return (
     <div className="flex flex-col items-center text-4xl pt-36 mb-10">
@@ -41,4 +41,4 @@ const page = (metric: string) => {
   );
 };
 
-export default page;
+export default MetricsStats;
