@@ -45,6 +45,11 @@ const Navbar = () => {
                   Analyst Ratings
                 </div>
               </Link>
+              <Link href="/references" className="text-center">
+                <div className="text-white hover:text-black cursor-pointer hover:bg-white rounded-full p-2">
+                  References
+                </div>
+              </Link>
             </div>
           </div>
         </div>
